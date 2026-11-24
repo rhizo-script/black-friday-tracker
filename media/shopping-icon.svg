@@ -1,0 +1,23 @@
+svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <style>
+      .shopping-icon { fill: #FF6B6B; }
+      .bag { fill: #FF6B6B; }
+      .handle { stroke: #FF6B6B; stroke-width: 3; fill: none; }
+    </style>
+  </defs>
+  <g>
+    <!-- Shopping bag -->
+    <rect x="30" y="40" width="68" height="60" rx="4" class="bag" opacity="0.9"/>
+    
+    <!-- Bag highlight -->
+    <path d="M 35 45 L 35 95 Q 35 98 38 100 L 90 100 Q 93 98 93 95 L 93 45" class="bag" opacity="0.6"/>
+    
+    <!-- Handle -->
+    <path d="M 45 40 Q 45 15 64 15 Q 83 15 83 40" class="handle"/>
+    
+    <!-- Price tag -->
+    <circle cx="75" cy="65" r="12" fill="#FFD700"/>
+    <text x="75" y="70" font-size="12" font-weight="bold" text-anchor="middle" fill="#000">$</text>
+  </g>
+</svg>

@@ -1,0 +1,136 @@
+{
+  "name": "black-friday-price-tracker",
+  "displayName": "Black Friday Price Tracker",
+  "description": "Track prices across Walmart, Amazon, Sam's Club, Best Buy, Target, eBay, Harbor Freight, and Books-A-Million for real Black Friday deals",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "blackFridayTracker.addItem",
+        "title": "Add Item to Wishlist"
+      },
+      {
+        "command": "blackFridayTracker.checkPrices",
+        "title": "Check All Prices Now"
+      },
+      {
+        "command": "blackFridayTracker.exportCSV",
+        "title": "Export Price History to CSV"
+      },
+      {
+        "command": "blackFridayTracker.openSettings",
+        "title": "Open Price Tracker Settings"
+      },
+      {
+        "command": "blackFridayTracker.viewHistory",
+        "title": "View Price History"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "blackFridayTrackerView",
+          "title": "Black Friday Tracker",
+          "icon": "media/shopping-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "blackFridayTrackerView": [
+        {
+          "id": "wishlistView",
+          "name": "Wishlist",
+          "when": "true"
+        },
+        {
+          "id": "priceAlertsView",
+          "name": "Price Alerts",
+          "when": "true"
+        },
+        {
+          "id": "statsView",
+          "name": "Savings Stats",
+          "when": "true"
+        }
+      ]
+    },
+    "configuration": [
+      {
+        "title": "Black Friday Price Tracker",
+        "properties": {
+          "blackFridayTracker.checkInterval": {
+            "type": "number",
+            "default": 3600,
+            "description": "Price check interval in seconds (default: 1 hour)"
+          },
+          "blackFridayTracker.phoneNumber": {
+            "type": "string",
+            "default": "",
+            "description": "Your phone number for SMS alerts (format: +1234567890)"
+          },
+          "blackFridayTracker.twilioAccountSid": {
+            "type": "string",
+            "default": "",
+            "description": "Twilio Account SID for SMS notifications"
+          },
+          "blackFridayTracker.twilioAuthToken": {
+            "type": "string",
+            "default": "",
+            "description": "Twilio Auth Token for SMS notifications"
+          },
+          "blackFridayTracker.twilioPhoneNumber": {
+            "type": "string",
+            "default": "",
+            "description": "Twilio phone number to send from"
+          },
+          "blackFridayTracker.enableNotifications": {
+            "type": "boolean",
+            "default": true,
+            "description": "Enable price drop notifications"
+          },
+          "blackFridayTracker.enableSmsNotifications": {
+            "type": "boolean",
+            "default": false,
+            "description": "Enable SMS notifications (requires Twilio setup)"
+          },
+          "blackFridayTracker.retailers": {
+            "type": "array",
+            "default": ["walmart", "amazon", "sams", "bestbuy", "target", "ebay", "harborfreight", "booksamillion"],
+            "description": "Retailers to track"
+          }
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run build && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/node": "20.x",
+    "@types/vscode": "^1.80.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.40.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "cheerio": "^1.0.0-rc.12",
+    "twilio": "^4.1.0"
+  }
+}
