@@ -1,0 +1,38 @@
+{
+  "name": "black-friday-tracker",
+  "displayName": "Black Friday Price Tracker",
+  "description": "Track prices across Walmart, Amazon, Sam's Club, Best Buy, Target, eBay, Harbor Freight, and Books-A-Million for real Black Friday deals",
+  "version": "0.1.0",
+  "publisher": "rhizo-script",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "black friday",
+    "price tracker",
+    "shopping",
+    "deals",
+    "comparison",
+    "walmart",
+    "amazon",
+    "best buy",
+    "target"
+  ],
+  "icon": "media/shopping-icon.svg",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rhizo-script/black-friday-tracker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rhizo-script/black-friday-tracker/issues"
+  },
+  "homepage": "https://github.com/rhizo-script/black-friday-tracker#readme",
+  "license": "MIT",
+  "galleryBanner": {
+    "color": "#FF6B6B",
+    "theme": "dark"
+  }
+}
